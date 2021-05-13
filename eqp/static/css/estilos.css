@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #efefef;
+}
+
+#folha-papel {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin: 26px auto 0;
+  width: 80%;
+  min-width: 300px;
+  min-height: 600px;
+  padding: 24px;
+  position: relative;
+  width: 80%;
+}
+
+#folha-papel:before, #folha-papel:after {
+  content: "";
+  height: 98%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+#folha-papel:before {
+  background: #fafafa;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  left: -5px;
+  top: 4px;
+  transform: rotate(-2.5deg);
+}
+
+#folha-papel:after {
+  background: #f6f6f6;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  right: -3px;
+  top: 1px;
+  transform: rotate(1.4deg);
+}
+
+#sol-amarelo {
+	width: 200px;
+	height: 200px;
+	background-color: #FFDE00;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  	transform: translate(-50%, -50%);
+  	transition: opacity 1s;
+}
+
+#sol-amarelo.zero {
+	opacity: 0.1;
+}
+
+#sol-amarelo.um {
+	opacity: 0.35;
+}
+
+#sol-amarelo.dois {
+	opacity: 0.65;
+}
+
+#sol-amarelo.tres {
+	opacity: 1;
+	animation:
+		sunrise 2s infinite linear forwards,
+		raios 2s 2s infinite linear;
+	box-shadow:
+		0 0 0 20px #FFDE0080,
+		0 0 0 40px #FFDE0040,
+		0 0 0 60px #FFDE0020,
+		0 0 0 80px #FFDE0010,
+		0 0 0 100px #FFDE0000,
+		0 0 40px 100px #FFDE0010;
+}
+
+@keyframes sunrise {
+	0% {
+		box-shadow: none;
+	}
+}
+
+@keyframes raios {
+	0% {
+		box-shadow: 
+		0 0 0 0 #FFDE0080,
+		0 0 0 20px #FFDE0080,
+		0 0 0 40px #FFDE0040,
+		0 0 0 60px #FFDE0020,
+		0 0 0 80px #FFDE0010,
+		0 0 40px 100px #FFDE0010;
+	}
+	100% {
+		box-shadow: 
+		0 0 0 20px #FFDE0080,
+		0 0 0 40px #FFDE0040,
+		0 0 0 60px #FFDE0020,
+		0 0 0 80px #FFDE0010,
+		0 0 0 100px #FFDE0000,
+		0 0 40px 100px #FFDE0010;
+	}
+}
+
+#minha-camera
+{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    transform: scale(0.150, 0.150);
+    transform-origin: 100% 100%;
+    border: 40px solid #CCCCCC;
+    border-radius: 80px;
+    transition: border 1s;
+}
+
+#minha-camera video
+{
+    border-radius: 40px;
+    filter: blur(0px) grayscale(00%) contrast(100%) brightness(100%);
+}
